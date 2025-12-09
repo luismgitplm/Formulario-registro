@@ -2,10 +2,9 @@
     include 'establecer-sesion.php';
     if (isset($_POST['csrf_token']) && $_POST['csrf_token'] === $_SESSION['csrf_token']) {
         if (isset($_POST['nombre'])){
-            // Habría que comprobar CSRF para dejar pasar a la aplicación
             $host = 'localhost';
-            $usuario = 'root'; // inseguro
-            $password = '';
+            $usuario = 'php-login'; 
+            $password = '1234#hola';
             $baseDatos = 'login-php';
 
             // Establecimiento de conexión
