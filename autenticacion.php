@@ -21,6 +21,7 @@
             $querySQL = "SELECT * FROM usuarios WHERE idusuario = '".$usuario."'";
             $resultado = $mysqli->query($querySQL);
 
+            // PDOStatement::rowCount() Sustitución de la condición manejando PDO
             if ($resultado->num_rows == 0){
                 // Código provisional a la espera de mejorar el reseteo de cookie ante error
                 if (isset($_COOKIE[session_name()])) {
@@ -29,7 +30,6 @@
                 }
                 $_SESSION['error'] = "Usuario no encontrado";
                 header("Location:./formulario.php");
-                exit;
             } else {
                 $row = mysqli_fetch_object($resultado);
 
@@ -46,7 +46,6 @@
                     }
                     $_SESSION['error'] = "contraseña incorrecta";
                     header("Location:./formulario.php");
-                    exit;
                 }
 
                 $mysqli->close();
