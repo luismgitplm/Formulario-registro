@@ -24,10 +24,6 @@
             // PDOStatement::rowCount() Sustitución de la condición manejando PDO
             if ($resultado->num_rows == 0){
                 // Código provisional a la espera de mejorar el reseteo de cookie ante error
-                if (isset($_COOKIE[session_name()])) {
-                    $params = session_get_cookie_params();
-                    setcookie(session_name(), '', 1, $params['path'], $params['domain'], $params['secure'], isset($params['httponly']));
-                }
                 $_SESSION['error'] = "Usuario no encontrado";
                 header("Location:./formulario.php");
             } else {
@@ -40,10 +36,6 @@
                     header("Location:./inicio.php"); // Siguiente paso
                 } else {
                     // Código provisional a la espera de mejorar el reseteo de cookie ante error
-                    if (isset($_COOKIE[session_name()])) {
-                        $params = session_get_cookie_params();
-                        setcookie(session_name(), '', 1, $params['path'], $params['domain'], $params['secure'], isset($params['httponly']));
-                    }
                     $_SESSION['error'] = "contraseña incorrecta";
                     header("Location:./formulario.php");
                 }

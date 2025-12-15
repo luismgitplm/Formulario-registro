@@ -31,7 +31,7 @@
         <div class="row mb-4">
             <div class="col">
             <div data-mdb-input-init class="form-outline">
-                <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>"><!-- token enviado oculto -->
+                <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>"><!-- token enviado oculto -->
                 <input type="text" id="nombre" name="nombre" class="form-control" />
                 <label class="form-label" for="nombre">Nombre</label>
             </div>
